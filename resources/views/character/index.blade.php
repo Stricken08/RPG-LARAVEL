@@ -1,5 +1,5 @@
 @extends('layouts.cards')
-@if(session('password'))
+@auth
 
 
 
@@ -53,5 +53,5 @@
     </div>
     @endforeach
 </div>
-@endif
+@endauth
 @endsection

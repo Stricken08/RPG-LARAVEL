@@ -6,7 +6,7 @@
 
 <body>
     @extends('layouts.layout')
-    @if(session('password'))
+    @auth
     @section('content')
 
 
@@ -102,7 +102,7 @@
         </div>
     </div>
     @endsection
-    @endif
+    @endauth
 </body>
 
 </html>
