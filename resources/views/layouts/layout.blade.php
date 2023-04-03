@@ -12,7 +12,7 @@
 <body>
     <div class='box'>
         <div class='box-inner'>
-            @if(session('password'))
+            @auth
             <ul class="menu cf">
                 <li><a href="/home">Accueil</a></li>
 
@@ -81,7 +81,7 @@
                     <li><a href="/home/create">Créer ton Compte</a></li>
                     <li><a href="{{ route('login') }}">Se connecter</a></li>
 
-                    @endif
+                    @endauth
 
 
 

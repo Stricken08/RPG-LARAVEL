@@ -5,7 +5,7 @@
 
 <h1 class="epicTitle">Mes Groupes</h1>
 @section('content')
-@if(session('password'))
+@auth
 <div class="container">
     @foreach($groups as $key => $groups)
     <div class="card">
@@ -31,5 +31,5 @@
     </div>
     @endforeach
 </div>
-@endif
+@endauth
 @endsection

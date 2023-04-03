@@ -21,8 +21,8 @@ Route::get('/', function () {
 });
 
 Route::resource('/home', UserController::class);
-Route::get('/login', [UserController::class, 'loginForm'])->name('loginForm');
-Route::post('/login', [UserController::class, 'login'])->name('login');
+Route::get('/login', [UserController::class, 'loginForm2'])->name('loginForm');
+Route::post('/login', [UserController::class, 'login2'])->name('login');
 Route::get('/disconnect', [UserController::class, 'disconnect'])->name('disconnect');
 
 Route::get('/users', [UserController::class, 'show'])->name('users.show');

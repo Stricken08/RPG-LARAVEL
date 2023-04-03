@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@if(session('password'))
+@auth
 @section('content')
 <div class="body form">
     <h1>Créer votre personnage</h1>
@@ -66,4 +66,4 @@
 
 @else
 <h1>connecter vous</h1>
-@endif
+@endauth

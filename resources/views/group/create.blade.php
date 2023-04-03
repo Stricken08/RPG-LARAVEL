@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@if(session('password'))
+@auth
 @section('content')
 <div class="body form">
     <h1>Créer votre Groupe d'aventure</h1>
@@ -56,4 +56,4 @@
 
 @else
 <h1>connecter vous</h1>
-@endif
+@auth
