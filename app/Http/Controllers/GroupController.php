@@ -10,8 +10,11 @@ class GroupController extends Controller
 {
     public function index()
     {
+        $user_id = Auth::id();
+        $groups = Group::where('user_id', $user_id)->get();
 
-        $groups = Group::all();
+
+
         return view('group.index', compact('groups'));
     }
 
