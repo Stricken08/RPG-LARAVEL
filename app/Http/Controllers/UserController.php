@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Http\RedirectResponse;
 
 class UserController extends Controller
 {
@@ -114,7 +115,7 @@ class UserController extends Controller
 
     public function disconnect2(Request $request)
     {
-        Auth::lo gout();
+        Auth::logout();
         return redirect()->route('home');
     }
     /**
