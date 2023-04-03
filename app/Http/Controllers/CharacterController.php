@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Character;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CharacterController extends Controller
 {
@@ -39,7 +40,8 @@ class CharacterController extends Controller
         $agilite = $request->input('agilite');
         $intel = $request->input('intelligence');
         $PV = $request->input('PV');
-
+        // Récupérer l'id de l'utilisateur connecté
+        $user_id = Auth::id();
         $character = [
 
             'nom' => $request->input('nom'),
@@ -50,6 +52,8 @@ class CharacterController extends Controller
             'AGILITE' => $request->input('agilite'),
             'INTEL' => $request->input('intelligence'),
             'PV' => $request->input('PV'),
+            'user_id' => $user_id
+
         ];
 
         Character::create($character);

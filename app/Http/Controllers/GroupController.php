@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\Group;
 use Illuminate\Http\Request;
 
@@ -29,13 +30,14 @@ class GroupController extends Controller
         $nom = $request->input('nom');
         $description = $request->input('description');
         $places = $request->input('places');
-
+        $user_id = Auth::id();
 
         $group = [
 
             'nom' => $request->input('nom'),
             'description' => $request->input('description'),
             'places' => $request->input('places'),
+            'user_id' => $user_id
         ];
 
         Group::create($group);

@@ -56,4 +56,4 @@
 
 @else
 <h1>connecter vous</h1>
-@auth
+@endauth
