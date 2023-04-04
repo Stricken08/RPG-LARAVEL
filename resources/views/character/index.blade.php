@@ -6,9 +6,15 @@
 <h1 class="epicTitle">Mes Personnages</h1>
 @section('content')
 <div class="container">
-    @foreach($characters as $key => $characters)
+    @foreach($characters as $nom => $characters)
     <div class="card">
+
         <div class="card-image">
+            <form class="delete" action="{{ route('character.destroy', ['nom' => $characters->nom]) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="deleteButton" type="submit">X</button>
+            </form>
             @if($characters['specialty'] === 'Guerrier')
             <img class="class" src="/images/guerrier.jpeg" alt="Guerrier" />
             @endif
@@ -46,11 +52,17 @@
                 <div class="type">MAGIE</div>
             </div>
             <div class="stat">
+
                 <div class="value">{{ $characters['PV'] }}</div>
-                <div class="type">PV</div>
+                <div class="type">PV
+                </div>
+
             </div>
+
         </div>
+
     </div>
+
     @endforeach
 </div>
 @endauth

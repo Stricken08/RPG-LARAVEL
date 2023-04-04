@@ -35,14 +35,15 @@ Route::get('/character/create', [CharacterController::class, 'create'])->name('c
 Route::get('/character/show', [CharacterController::class, 'index'])->name('character.index');
 Route::post('/character/create', [CharacterController::class, 'create'])->name('character.create');
 Route::post('/character/create', [CharacterController::class, 'store']);
-
+Route::delete('/character/{nom}', [CharacterController::class, 'destroy'])->name('character.destroy');
+Route::get('/character/{nom}', [CharacterController::class, 'show'])->name('character.show');
 // routes des groupes
 Route::get('/group/create', 'App\Http\Controllers\GroupController@create');
 Route::get('/group/create', [GroupController::class, 'create'])->name('group.create');
 Route::get('/group/show', [GroupController::class, 'index'])->name('group.index');
 Route::post('/group/create', [GroupController::class, 'create'])->name('group.create');
 Route::post('/group/create', [GroupController::class, 'store']);
-
+Route::delete('/groupe/{nom}', [GroupController::class, 'destroy'])->name('group.destroy');
 //routes des classes
 Route::get('/class/warrior', [ClassController::class, 'warrior'])->name('warrior');
 Route::get('/class/mage', [ClassController::class, 'mage'])->name('mage');

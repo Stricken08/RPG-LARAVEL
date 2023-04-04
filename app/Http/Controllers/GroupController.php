@@ -46,4 +46,11 @@ class GroupController extends Controller
         Group::create($group);
         return view('group.rendercreation', compact('nom', 'description', 'places'));
     }
+    public function destroy($nom)
+    {
+        // Supprimer un groupe spécifique
+        $group = Group::where('nom', $nom)->firstOrFail();
+        $group->delete();
+        return redirect()->route('group.index');
+    }
 }

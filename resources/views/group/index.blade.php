@@ -7,7 +7,7 @@
 @section('content')
 @auth
 <div class="container">
-    @foreach($groups as $key => $groups)
+    @foreach($groups as $nom => $groups)
     <div class="card">
         <div class="card-image">
             @if($groups['places']
@@ -26,6 +26,11 @@
             </span>
             <h3>nombre de places: {{ $groups['places'] }}</h3>
             <p>{{ $groups['description'] }}</p>
+            <form class="delete" action="{{ route('group.destroy', ['nom' => $groups->nom]) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="deleteButton" type="submit">Supprimer ce groupe</button>
+            </form>
         </div>
 
     </div>

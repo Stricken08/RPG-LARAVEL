@@ -247,3 +247,24 @@
 body {
     font-family: "Almendra Display", cursive;
 }
+
+/* bouton pour supprimer le personnage */
+.delete {
+    display: inline-block;
+}
+
+.deleteButton {
+    background-color: #ff4d4d;
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.deleteButton:hover {
+    background-color: #e60000;
+}

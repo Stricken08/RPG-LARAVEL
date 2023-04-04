@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CharacterController extends Controller
 {
-
+    // fonction pour afficher touts les persos sur une vue index
     public function index()
     {
         $user_id = Auth::id();
@@ -16,7 +16,15 @@ class CharacterController extends Controller
 
         return view('character.index', compact('characters'));
     }
+    // fonction pour afficher un perso unique sur une vue
+    public function show($id)
+    {
+        // Récupérer une seule série avec son nom
+        $character = Character::where('nom', $id)->firstOrFail();
 
+        // Retourner la vue avec les détails du persosérie
+        return view('character.show', ['character' => $character]);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -64,5 +72,13 @@ class CharacterController extends Controller
     {
         // réinitialisez les statistiques de votre personnage ici
         return redirect()->back();
+    }
+
+    public function destroy($nom)
+    {
+        // Supprimer un utilisateur spécifique
+        $character = Character::where('nom', $nom)->firstOrFail();
+        $character->delete();
+        return redirect()->route('character.index');
     }
 }
