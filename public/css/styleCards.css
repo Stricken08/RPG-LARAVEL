@@ -268,3 +268,7 @@ body {
 .deleteButton:hover {
     background-color: #e60000;
 }
+
+.cardsLink {
+    text-decoration: none;
+}

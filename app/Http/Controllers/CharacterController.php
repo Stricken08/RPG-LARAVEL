@@ -17,13 +17,10 @@ class CharacterController extends Controller
         return view('character.index', compact('characters'));
     }
     // fonction pour afficher un perso unique sur une vue
-    public function show($id)
+    public function show(Request $request, $nom)
     {
-        // Récupérer une seule série avec son nom
-        $character = Character::where('nom', $id)->firstOrFail();
-
-        // Retourner la vue avec les détails du persosérie
-        return view('character.show', ['character' => $character]);
+        $character = Character::where('nom', $nom)->firstOrFail();
+        return view('character.show', compact('character'));
     }
 
     /**

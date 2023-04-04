@@ -1,6 +1,9 @@
 @extends('layouts.layout')
 @auth
 @section('content')
+<video autoplay muted loop id="bg-video">
+    <source src="/video/background.mp4" type="video/mp4">
+</video>
 <div class="body form">
     <h1>Créer votre personnage</h1>
     <form method="POST" action="{{ route('character.create') }}">

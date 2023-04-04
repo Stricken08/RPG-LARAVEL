@@ -6,64 +6,64 @@
 <h1 class="epicTitle">Mes Personnages</h1>
 @section('content')
 <div class="container">
-    @foreach($characters as $nom => $characters)
-    <div class="card">
+    @foreach($characters as $nom => $character)
+    <a class="cardsLink" href="{{ route('character.show', ['nom' => $character->nom]) }}">
+        <div class="card">
 
-        <div class="card-image">
-            <form class="delete" action="{{ route('character.destroy', ['nom' => $characters->nom]) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button class="deleteButton" type="submit">X</button>
-            </form>
-            @if($characters['specialty'] === 'Guerrier')
-            <img class="class" src="/images/guerrier.jpeg" alt="Guerrier" />
-            @endif
-            @if($characters['specialty'] === 'Berserker')
-            <img class="class" src="/images/berzecker.jpeg" alt="Guerrier" />
-            @endif
-            @if( $characters['specialty'] === 'Mage')
-            <img class="class" src="/images/mage.png" alt="mage" />
-            @endif
-            @if( $characters['specialty'] === 'Druide')
-            <img class="class" src="/images/druide.png" alt="druide" />
-            @endif
-            @if( $characters['specialty'] === 'Assassin')
-            <img class="class" src="/images/assassin.png" alt="assassin" />
-            @endif
-            @if( $characters['specialty'] === 'Archer')
-            <img class="class" src="/images/archer.png" alt="archer" />
-            @endif
-        </div>
-        <div class="card-text">
-            <span class="date">
-                <h3>{{ $characters['specialty'] }}</h3>
-            </span>
-            <h3>{{ $characters['nom'] }}</h3>
-            <p>{{ $characters['description'] }}</p>
-        </div>
-        <div class="card-stats">
-            <div class="stat">
-                <div class="value">{{ $characters['FORCE'] }}<sup></sup></div>
-                <div class="type">Force</div>
+            <div class="card-image">
+
+
+                @if($character['specialty'] === 'Guerrier')
+                <img class="class" src="/images/guerrier.jpeg" alt="Guerrier" />
+                @endif
+                @if($character['specialty'] === 'Berserker')
+                <img class="class" src="/images/berzecker.jpeg" alt="Guerrier" />
+                @endif
+                @if( $character['specialty'] === 'Mage')
+                <img class="class" src="/images/mage.png" alt="mage" />
+                @endif
+                @if( $character['specialty'] === 'Druide')
+                <img class="class" src="/images/druide.png" alt="druide" />
+                @endif
+                @if( $character['specialty'] === 'Assassin')
+                <img class="class" src="/images/assassin.png" alt="assassin" />
+                @endif
+                @if( $character['specialty'] === 'Archer')
+                <img class="class" src="/images/archer.png" alt="archer" />
+                @endif
             </div>
-
-            <div class="stat border">
-                <div class="value">{{ $characters['MAGIE'] }}</div>
-                <div class="type">MAGIE</div>
+            <div class="card-text">
+                <span class="date">
+                    <h3>{{ $character['specialty'] }}</h3>
+                </span>
+                <h3>{{ $character['nom'] }}</h3>
+                <p>{{ $character['description'] }}</p>
             </div>
-            <div class="stat">
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="value">{{ $character['FORCE'] }}<sup></sup></div>
+                    <div class="type">Force</div>
+                </div>
 
-                <div class="value">{{ $characters['PV'] }}</div>
-                <div class="type">PV
+                <div class="stat border">
+                    <div class="value">{{ $character['MAGIE'] }}</div>
+                    <div class="type">MAGIE</div>
+                </div>
+                <div class="stat">
+
+                    <div class="value">{{ $character['PV'] }}</div>
+                    <div class="type">PV
+                    </div>
+
                 </div>
 
             </div>
 
         </div>
-
-    </div>
+    </a>
 
     @endforeach
 </div>
+
 @endauth
 @endsection

@@ -270,7 +270,8 @@ button[type="reset"]:hover {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
     font-family: roboto;
     text-align: center;
-    width: 32vw;
+    width: 33vw;
+    height: 70vh;
     border: 4px solid grey;
     position: absolute;
     left: 5vw;
@@ -306,6 +307,7 @@ button[type="reset"]:hover {
     margin: 25px;
     color: grey;
 }
+
 .card-text .date {
     color: rgb(255, 7, 110);
     font-size: 13px;
@@ -316,7 +318,7 @@ button[type="reset"]:hover {
     font-weight: 300;
 }
 .card-text h1 {
-    color: grey;
+    color: rgb(47, 255, 158);
     margin-top: 0px;
     font-size: 28px;
 }
@@ -387,4 +389,14 @@ button[type="reset"]:hover {
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
+}
+
+/* fond d'ecran video */
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
 }
