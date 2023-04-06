@@ -53,12 +53,27 @@
 
                 </ul>
             </li>
-            <li><a href="{{ route('users.show') }}">Profil</a></li>
+            <li><a href="{{ route('character.all') }}">Adversaires</a></li>
             <li><a href="{{ route('disconnect') }}">Se Déconnecter</a></li>
 
     </div>
     @yield('title')
     @yield('content')
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>A propos de nous</h4>
+                    <p>Nous sommes une communauté de joueurs passionnés de RPG. Notre objectif est de créer un espace convivial pour les amateurs de jeux de rôle.</p>
+                </div>
+
+
+            </div>
+            <hr>
+            <p class="text-center">&copy; 2023 RPG Communauté. Tous droits réservés.</p>
+        </div>
+    </footer>
+
 </body>
 
 </html>

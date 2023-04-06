@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Character;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CharacterController extends Controller
 {
-    // fonction pour afficher touts les persos sur une vue index
+    // fonction pour afficher les persos du joueur sur une vue index
     public function index()
     {
         $user_id = Auth::id();
@@ -16,6 +17,43 @@ class CharacterController extends Controller
 
         return view('character.index', compact('characters'));
     }
+    public function view()
+    {
+        $user_id = Auth::id();
+        $user_ids = Character::where('user_id', $user_id)->pluck('id')->toArray();
+        $characters = Character::whereNotIn('id', $user_ids)->get();
+        $users = User::pluck('pseudo', 'id');
+
+        return view('character.showw', compact('characters', 'users'));
+    }
+    public function search(Request $request)
+    {
+        // Récupérez les valeurs des paramètres de recherche
+        $nom = $request->input('nom');
+        $specialty = $request->input('specialty');
+
+
+        // Commencez à construire la requête de recherche
+        $query = Character::query();
+
+        // Appliquez les filtres de recherche sur les champs souhaités
+        if ($nom) {
+            $query->where('nom', 'like', "%$nom%");
+        }
+
+        if ($specialty) {
+            $query->where('specialty', $specialty);
+        }
+
+
+
+        // Récupérez les résultats de la requête
+        $characters = $query->get();
+
+        // Passez les résultats à la vue appropriée
+        return view('character.showw', compact('characters'));
+    }
+
     // fonction pour afficher un perso unique sur une vue
     public function show(Request $request, $nom)
     {

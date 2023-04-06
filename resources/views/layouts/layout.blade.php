@@ -42,6 +42,7 @@
 
                     </ul>
                 </li>
+
                 <li>
 
                     <a href="{{ route('group.index') }}">Mes groupes</a>
@@ -55,7 +56,7 @@
 
                     </ul>
                 </li>
-                <li><a href="{{ route('users.show') }}">Profil</a></li>
+                <li><a href="{{ route('character.all') }}">Adversaires</a></li>
                 <li><a href="{{ route('disconnect') }}">Se Déconnecter</a></li>
 
                 @else
@@ -90,8 +91,13 @@
 
                     <div class="main-section">
                         @yield('content')
+
                     </div>
+                    <footer>
+                        <p>© 2023 RPG World</p>
+                    </footer>
         </div>
+
     </div>
 
 </body>

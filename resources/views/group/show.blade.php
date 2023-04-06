@@ -38,11 +38,7 @@
 </div>
 
 <div>
-    <form class="delete" action="{{ route('group.destroy', ['nom' => $group->nom]) }}" method="POST">
-        @csrf
-        @method('DELETE')
-        <button class="deleteButton" type="submit">supprimer le groupe</button>
-    </form>
+
 
 </div>
 

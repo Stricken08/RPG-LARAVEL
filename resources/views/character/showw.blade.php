@@ -2,13 +2,43 @@
 @auth
 
 
+<h1 class="epicTitle">Mes Adversaires ⚔️</h1>
 
 
 
-<h1 class="epicTitle">Mes Personnages</h1>
 
 @section('content')
+<form class="search" action="{{ route('character.search') }}" method="GET">
+    <div class="form-group">
+        <label for="nom">Nom: </label>
+        <input type="text" class="form-control" name="nom" id="nom">
+    </div>
+    <div class="form-group">
+        <label for="specialty">Spécialité:</label>
+        <select class="form-control" name="specialty" id="specialty">
+            <option value="">Tous</option>
+            <option value="Guerrier">Guerrier</option>
+            <option value="Berserker">Berserker</option>
+            <option value="Mage">Mage</option>
+            <option value="Druide">Druide</option>
+            <option value="Assassin">Assassin</option>
+            <option value="Archer">Archer</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="user_id">Joueur:</label>
+        <select class="form-control" name="user_id" id="user_id">
+            <option value="">Tous</option>
+            @foreach ($users as $id => $pseudo)
+            <option value="{{ $id }}">{{ $pseudo }}</option>
+            @endforeach
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Rechercher</button>
+</form>
+
 <div class="container">
+
     @foreach($characters as $nom => $character)
     <a class="cardsLink" href="{{ route('character.show', ['nom' => $character->nom]) }}">
         <div class="card">
@@ -35,7 +65,7 @@
                 <img class="class" src="/images/archer.png" alt="archer" />
                 @endif
             </div>
-            <div class="card-text" style="overflow: auto;">
+            <div class="card-text">
                 <span class="date">
                     <h3>{{ $character['specialty'] }}</h3>
                 </span>

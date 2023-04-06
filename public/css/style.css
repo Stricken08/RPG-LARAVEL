@@ -184,11 +184,11 @@ h3 {
 
 /* styles pour les inputs de stats */
 .stat {
+    border: solid 2px rgb(67, 64, 64);
     display: inline-block;
     padding: 0.5em 1em;
-    margin: 0;
-    border: none;
-    background-color: #6de412;
+
+    background-color: #1251e4;
     color: #fff;
     font-size: 18px;
     font-weight: bold;
@@ -271,11 +271,11 @@ button[type="reset"]:hover {
     font-family: roboto;
     text-align: center;
     width: 33vw;
-    height: 70vh;
+    height: 69vh;
     border: 4px solid grey;
     position: absolute;
     left: 5vw;
-    top: 10vh;
+    top: 5vh;
 }
 .card-image {
     grid-area: image;
@@ -331,6 +331,7 @@ button[type="reset"]:hover {
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     background: rgb(79, 173, 75);
+    margin-top: 6%;
 }
 .card-stats .stat {
     display: flex;
@@ -399,4 +400,12 @@ button[type="reset"]:hover {
     min-width: 100%;
     min-height: 100%;
     z-index: -1;
+}
+
+footer {
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+    width: 100%;
 }

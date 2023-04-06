@@ -37,8 +37,8 @@ Route::post('/character/create', [CharacterController::class, 'create'])->name('
 Route::post('/character/create', [CharacterController::class, 'store']);
 Route::delete('/character/{nom}', [CharacterController::class, 'destroy'])->name('character.destroy');
 Route::get('/character/{nom}', [CharacterController::class, 'show'])->name('character.show');
-
-
+Route::get('/characters', [CharacterController::class, 'view'])->name('character.all');
+Route::get('/characters/search', [CharacterController::class, 'search'])->name('character.search');
 // routes des groupes
 Route::get('/group/create', 'App\Http\Controllers\GroupController@create');
 Route::get('/group/create', [GroupController::class, 'create'])->name('group.create');
